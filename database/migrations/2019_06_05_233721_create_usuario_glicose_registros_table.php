@@ -15,6 +15,8 @@ class CreateUsuarioGlicoseRegistrosTable extends Migration
     {
         Schema::create('usuario_glicose_registros', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_usuario');
+            $table->float('glicose');
             $table->timestamps();
         });
     }

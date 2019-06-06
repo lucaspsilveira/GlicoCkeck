@@ -15,6 +15,9 @@ class CreateUsuarioPesoRegistrosTable extends Migration
     {
         Schema::create('usuario_peso_registros', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_usuario');
+            $table->float('peso');
+            $table->text('unidade');
             $table->timestamps();
         });
     }

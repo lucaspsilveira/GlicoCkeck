@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioBatimentosCardiacosRegistrosTable extends Migration
+class CreateUsuarioAlturaRegistrosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateUsuarioBatimentosCardiacosRegistrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_batimentos_cardiacos_registros', function (Blueprint $table) {
+        Schema::create('usuario_altura_registros', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_usuario');
-            $table->integer('batimentos_cardiacos');
+            $table->bigInteger('id_usuario');
+            $table->float('altura');
+            $table->text('unidade');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateUsuarioBatimentosCardiacosRegistrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_batimentos_cardiacos_registros');
+        Schema::dropIfExists('usuario_altura_registros');
     }
 }

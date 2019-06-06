@@ -15,6 +15,9 @@ class CreateUsuarioPressaoArterialRegistrosTable extends Migration
     {
         Schema::create('usuario_pressao_arterial_registros', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_usuario');
+            $table->integer('pressao_arterial_sistolica');
+            $table->integer('pressao_arterial_diastolica');
             $table->timestamps();
         });
     }
