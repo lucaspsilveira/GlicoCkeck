@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\UsuarioGlicoseRegistro;
 use App\UsuarioAlturaRegistro;
 use App\UsuarioPesoRegistro;
+use App\UsuarioBatimentosCardiacosRegistro;
 
 class UsuarioRegistroDadosTest extends TestCase
 {
@@ -86,7 +87,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $response->assertSessionHasErrors();
     }
 
-        /**
+    /**
      * A basic test example.
      *
      * @test
@@ -121,6 +122,42 @@ class UsuarioRegistroDadosTest extends TestCase
             'id_usuario' => '1',
             'peso' => '1',
             'unidade' => 'peso',
+        ]);
+        $response->assertSessionHasErrors();
+    }
+    /**
+     * A basic test example.
+     *
+     * @test
+     */
+    public function um_registro_batimentos_cardiacos_pode_ser_adicionado()
+    {
+        $oi = $this->post('/users', [
+            'name' => 'Lucas sdfsd',
+            'password' => 'dsdsdsd',
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaassdfds',
+            'email' => 'lucasdfdfss@lucas.com',
+        ]);
+        $this->withoutExceptionHandling();
+        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+            'id_usuario' => 4,
+            'batimentos_cardiacos' => 19,
+        ]);
+        $response->assertOk();
+        $this->assertCount(1, UsuarioBatimentosCardiacosRegistro::all());
+    }
+    /**
+     * A basic test example.
+     *
+     * @test
+     */
+    public function um_registro_batimentos_cardiacos_tem_que_ter_peso_e_usuario_e_unidade()
+    {
+        //$this->withoutExceptionHandling();
+        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+            'id_usuario' => '1',
+            'batimentos_cardiacos' => 3,
         ]);
         $response->assertSessionHasErrors();
     }
