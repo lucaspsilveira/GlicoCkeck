@@ -8,6 +8,8 @@ use App\UsuarioGlicoseRegistro;
 use App\UsuarioAlturaRegistro;
 use App\UsuarioPesoRegistro;
 use App\UsuarioBatimentosCardiacosRegistro;
+use App\User;
+use App\UsuarioPressaoArterialRegistro;
 
 class UsuarioRegistroDadosTest extends TestCase
 {
@@ -158,6 +160,44 @@ class UsuarioRegistroDadosTest extends TestCase
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
+        ]);
+        $response->assertSessionHasErrors();
+    }
+    /**
+     * A basic test example.
+     *
+     * @test
+     */
+    public function um_registro_pressao_arterial_pode_ser_adicionado()
+    {
+        $oi = $this->post('/users', [
+            'name' => 'Lucas sdfsd',
+            'password' => 'dsdsdsd',
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaassdfds',
+            'email' => 'lucasdfdfss@lucas.com',
+        ]);
+        $this->withoutExceptionHandling();
+        $response = $this->post('/UsuarioPressaoArterialRegistros', [
+            'id_usuario' => 5,
+            'pressao_arterial_sistolica' => 19,
+            'pressao_arterial_diastolica' => 10
+        ]);
+        $response->assertOk();
+        $this->assertCount(1, UsuarioPressaoArterialRegistro::all());
+    }
+    /**
+     * A basic test example.
+     *
+     * @test
+     */
+    public function um_registro_pressao_arterial_tem_que_ter_peso_e_usuario_e_unidade()
+    {
+        //$this->withoutExceptionHandling();
+        $response = $this->post('/UsuarioPressaoArterialRegistros', [
+            'id_usuario' => 1,
+            'pressao_arterial_sistolica' => 19,
+            'pressao_arterial_diastolica' => 10
         ]);
         $response->assertSessionHasErrors();
     }
