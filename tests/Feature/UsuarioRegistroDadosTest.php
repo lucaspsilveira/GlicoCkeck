@@ -17,6 +17,13 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_glicose_pode_ser_adicionado()
     {
+        $this->post('/users', [
+            'name' => 'Lucas',
+            'password' => 'dsdsdsd',
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaas',
+            'email' => 'lucasss@lucas.com',
+        ]);
         $this->withoutExceptionHandling();
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => 1,
@@ -46,9 +53,16 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_altura_pode_ser_adicionado()
     {
+        $oi = $this->post('/users', [
+            'name' => 'Lucas sdfsd',
+            'password' => 'dsdsdsd',
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaassdfds',
+            'email' => 'lucasdfdfss@lucas.com',
+        ]);
         $this->withoutExceptionHandling();
         $response = $this->post('/UsuarioAlturaRegistros', [
-            'id_usuario' => 1,
+            'id_usuario' => 2,
             'altura' => 1.8,
             'unidade' => 'metros',
         ]);
