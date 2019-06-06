@@ -13,4 +13,5 @@
 
 Route::post("UsuarioGlicoseRegistros",'UsuarioGlicoseRegistroController@store');
 Route::post("UsuarioAlturaRegistros",'UsuarioAlturaRegistroController@store');
+Route::post("UsuarioPesoRegistros",'UsuarioPesoRegistroController@store');
 Route::post("users",'UserController@store');
