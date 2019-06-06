@@ -8,9 +8,10 @@ use App\UsuarioGlicoseRegistro;
 class UsuarioGlicoseRegistroController extends Controller
 {
     public function store() {
-        UsuarioGlicoseRegistro::create([
-            'id_usuario' => request('id_usuario'),
-            'glicose' => request('glicose'),
+        $dados = request()->validate([
+            'id_usuario' => 'exists:users,id',
+            'glicose' => 'required'
         ]);
+        UsuarioGlicoseRegistro::create($dados);
     }
 }
