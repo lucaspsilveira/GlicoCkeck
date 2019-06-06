@@ -12,4 +12,5 @@
 */
 
 Route::post("UsuarioGlicoseRegistros",'UsuarioGlicoseRegistroController@store');
+Route::post("UsuarioAlturaRegistros",'UsuarioAlturaRegistroController@store');
 Route::post("users",'UserController@store');
