@@ -26,6 +26,7 @@ Route::post("UsuarioBatimentosCardiacosRegistros",'UsuarioBatimentosCardiacosReg
 Route::post("UsuarioPressaoArterialRegistros",'UsuarioPressaoArterialRegistroController@store');
 
 Route::post("users",'UserController@store');
+Route::get("users",'UserController@index');
 Route::get("users/create",'UserController@create');
 
 // Route::get('/', function () {
