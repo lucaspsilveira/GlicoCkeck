@@ -7,11 +7,21 @@ use App\User;
 
 class UserController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function store() {
         $dados = request()->validate([
             'email' => 'required|unique:users,email',
             'name' => 'required',
             'data_nascimento' => 'required',
+            'sexo' => 'required',
             'usuario' => 'required|unique:users,usuario',
             'password' => 'required',
         ]);
@@ -74,7 +84,8 @@ class UserController extends Controller
         $user->update([
             'nome',
             'data_nascimento',
-            'usuario'
+            'usuario',
+            'sexo'
         ]);
     }
 

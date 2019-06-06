@@ -24,6 +24,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $this->post('/users', [
             'name' => 'Lucas',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaas',
             'email' => 'lucasss@lucas.com',
@@ -60,6 +61,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', [
             'name' => 'Lucas sdfsd',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaassdfds',
             'email' => 'lucasdfdfss@lucas.com',
@@ -99,6 +101,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', [
             'name' => 'Lucas sdfsd',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaassdfds',
             'email' => 'lucasdfdfss@lucas.com',
@@ -137,6 +140,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', [
             'name' => 'Lucas sdfsd',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaassdfds',
             'email' => 'lucasdfdfss@lucas.com',
@@ -173,6 +177,7 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', [
             'name' => 'Lucas sdfsd',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaassdfds',
             'email' => 'lucasdfdfss@lucas.com',

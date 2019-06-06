@@ -16,10 +16,11 @@ class UsuarioCriacaoTest extends TestCase
      */
     public function um_usuario_pode_se_cadastrar()
     {
-       // $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
         $response = $this->post('/users', [
             'name' => 'Lucas',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhaas',
             'email' => 'lucasss@lucas.com',
@@ -38,6 +39,7 @@ class UsuarioCriacaoTest extends TestCase
         $response = $this->post('/users', [
             'name' => '',
             'password' => 'dsdsdsd',
+            'sexo' => 0,
             'data_nascimento' => "1998-12-12",
             'usuario' => 'luquinhas',
             'email' => 'lucas@lucas.com',
