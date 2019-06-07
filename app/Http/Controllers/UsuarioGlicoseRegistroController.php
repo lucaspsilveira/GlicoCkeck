@@ -25,7 +25,7 @@ class UsuarioGlicoseRegistroController extends Controller
             'glicose' => 'required'
         ]);
         UsuarioGlicoseRegistro::create($dados);
-        return view('home');
+        return redirect("UsuarioGlicoseRegistros");
     }
 
     /**
@@ -35,7 +35,7 @@ class UsuarioGlicoseRegistroController extends Controller
      */
     public function index()
     {
-        $registros = UsuarioGlicoseRegistro::all();
+        $registros = UsuarioGlicoseRegistro::all()->whereIn("id_usuario",Auth::user()->id);
         return view('usuarioGlicoseRegistro.index', [
             'registrosGlicose' => $registros
         ]);
