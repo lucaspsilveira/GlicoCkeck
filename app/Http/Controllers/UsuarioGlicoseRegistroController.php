@@ -35,7 +35,7 @@ class UsuarioGlicoseRegistroController extends Controller
      */
     public function index()
     {
-        $registros = UsuarioGlicoseRegistro::all()->whereIn("id_usuario",Auth::user()->id);
+        $registros = UsuarioGlicoseRegistro::where("id_usuario",Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('usuarioGlicoseRegistro.index', [
             'registrosGlicose' => $registros
         ]);
@@ -92,9 +92,10 @@ class UsuarioGlicoseRegistroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UsuarioGlicoseRegistro $usuarioGlicoseRegistro)
+    public function destroy($id)
     {
-        $usuarioGlicoseRegistro->delete();
-        return redirect('/inicio.index');
+        $registro = UsuarioGlicoseRegistro::find($id);
+        $registro->delete();
+        return redirect('/UsuarioGlicoseRegistros');
     }
 }
