@@ -19,9 +19,20 @@ Route::get("UsuarioGlicoseRegistros",'UsuarioGlicoseRegistroController@index');
 Route::get("UsuarioGlicoseRegistros/create",'UsuarioGlicoseRegistroController@create');
 
 Route::post("UsuarioAlturaRegistros",'UsuarioAlturaRegistroController@store');
+Route::get("UsuarioPesoRegistros",'UsuarioAlturaRegistroController@index');
+Route::get("UsuarioPesoRegistros/create",'UsuarioPesoRegistroController@create');
+
 Route::post("UsuarioPesoRegistros",'UsuarioPesoRegistroController@store');
+Route::get("UsuarioPesoRegistros",'UsuarioPesoRegistroController@index');
+Route::get("UsuarioPesoRegistros/create",'UsuarioPesoRegistroController@create');
+
 Route::post("UsuarioBatimentosCardiacosRegistros",'UsuarioBatimentosCardiacosRegistroController@store');
+Route::get("UsuarioBatimentosCardiacosRegistros",'UsuarioBatimentosCardiacosRegistroController@index');
+Route::get("UsuarioBatimentosCardiacosRegistros/create",'UsuarioBatimentosCardiacosRegistroController@create');
+
 Route::post("UsuarioPressaoArterialRegistros",'UsuarioPressaoArterialRegistroController@store');
+Route::get("UsuarioPressaoArterialRegistros",'UsuarioPressaoArterialRegistroController@index');
+Route::get("UsuarioPressaoArterialRegistros/create",'UsuarioPressaoArterialRegistroController@create');
 
 Route::post("users",'UserController@store');
 Route::get("users",'UserController@index');
