@@ -63,7 +63,7 @@ class UsuarioGlicoseRegistroController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário para editar um registro de GLICOSE
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
