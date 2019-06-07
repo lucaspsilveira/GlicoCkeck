@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h1>Olá mundo</h1>
+    <h1>Registros de batimentos cardíacos</h1>
     <ul>
         @foreach ($registrosBatimentosCardiacos as $registro)
-            <li>{{$registro->id_usuario}} e {{$registro->batimentos_cardiacos}}</li>
+            <li>{{$registro->created_at}}: {{$registro->batimentos_cardiacos}} bpm</li>
         @endforeach
     </ul>
     

@@ -2,10 +2,10 @@
 
 @section('content')
 
-    <h1>Olá mundo</h1>
+    <h1>Registros de Glicose</h1>
     <ul>
         @foreach ($registrosGlicose as $registro)
-            <li>{{$registro->id_usuario}} e {{$registro->glicose}}</li>
+            <li>{{$registro->created_at}}: {{$registro->glicose}}</li>
         @endforeach
     </ul>
     
