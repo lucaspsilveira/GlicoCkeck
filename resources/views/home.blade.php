@@ -10,15 +10,15 @@
                 <p class="title">Registrar glicose</p>
                 <p class="subtitle">Registre seu nível de glicose</p>
             </article>
-            <article onclick="location.href ='UsuarioPressaoArterialRegistros/create'" class="tile is-child notification is-warning">
+            <article onclick="location.href ='UsuarioPressaoArterialRegistros/create'" class="tile is-child notification is-primary">
                     <p class="title">Registrar pressão arterial</p>
                     <p class="subtitle">Registre sua pressão arterial</p>
             </article>
-            <article onclick="location.href ='UsuarioBatimentosCardiacosRegistros/create'" class="tile is-child notification is-success">
+            <article onclick="location.href ='UsuarioBatimentosCardiacosRegistros/create'" class="tile is-child notification is-primary">
                     <p class="title">Registrar batimentos cardíacos</p>
                     <p class="subtitle">Registre seus batimentos cardíacos</p>
             </article>
-            <article onclick="location.href ='UsuarioPesoRegistros/create'" class="tile is-child notification is-warning">
+            <article onclick="location.href ='UsuarioPesoRegistros/create'" class="tile is-child notification is-primary">
                     <p class="title">Registrar Peso</p>
                     <p class="subtitle">Registre seu peso</p>
             </article>

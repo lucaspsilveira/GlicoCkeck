@@ -29,7 +29,7 @@ class UsuarioPesoRegistroController extends Controller
      */
     public function index()
     {
-        $registros = UsuarioPesoRegistro::all()->whereIn("id_usuario",Auth::user()->id);
+        $registros = UsuarioPesoRegistro::where("id_usuario",Auth::user()->id)->orderBy('created_at','desc')->get();
         return view('usuarioPesoRegistro.index', [
             'registrosPeso' => $registros
         ]);
@@ -43,5 +43,17 @@ class UsuarioPesoRegistroController extends Controller
     public function create()
     {
         return view('usuarioPesoRegistro.create');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $registro = UsuarioPesoRegistro::find($id);
+        $registro->delete();
+        return redirect('/UsuarioPesoRegistros');
     }
 }

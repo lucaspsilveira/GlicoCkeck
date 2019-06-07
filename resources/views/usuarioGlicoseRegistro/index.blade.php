@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>Registros de Glicose</h1>
-    <table class="table">
+    <table class="table is-fullwidth">
         <thead>
             <th class="">Data/Hora Registro</th>
             <th class="">Glicose</th>
@@ -15,7 +15,6 @@
                 <th>{{$registro->created_at}}</th> 
                 <td>{{$registro->glicose}} mg/dl</td>
                 <td>
-                
                 <form action="/UsuarioGlicoseRegistros/{{$registro->id}}" method="POST">
                         @method('DELETE')
                         @csrf

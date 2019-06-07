@@ -29,7 +29,7 @@ class UsuarioPressaoArterialRegistroController extends Controller
      */
     public function index()
     {
-        $registros = UsuarioPressaoArterialRegistro::all()->whereIn("id_usuario",Auth::user()->id);
+        $registros = UsuarioPressaoArterialRegistro::where("id_usuario",Auth::user()->id)->orderBy('created_at', 'desc')->get();
         return view('usuarioPressaoArterialRegistro.index', [
             'registrosPressaoArterial' => $registros
         ]);
@@ -43,5 +43,17 @@ class UsuarioPressaoArterialRegistroController extends Controller
     public function create()
     {
         return view('usuarioPressaoArterialRegistro.create');
+    }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $registro = UsuarioPressaoArterialRegistro::find($id);
+        $registro->delete();
+        return redirect('/UsuarioPressaoArterialRegistros');
     }
 }
