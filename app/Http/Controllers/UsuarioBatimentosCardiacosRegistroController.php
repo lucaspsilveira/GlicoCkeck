@@ -55,4 +55,33 @@ class UsuarioBatimentosCardiacosRegistroController extends Controller
         $registro->delete();
         return redirect('/UsuarioBatimentosCardiacosRegistros');
     }
+
+      /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $registro = UsuarioBatimentosCardiacosRegistro::find($id);
+        return view('usuarioBatimentosCardiacosRegistro.edit', compact('registro'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {   
+        $registro = UsuarioBatimentosCardiacosRegistro::find($id);
+        $dados = request()->validate([
+            'batimentos_cardiacos' => 'required',
+            'created_at' => 'required'
+        ]);
+        $registro->update($dados);
+        return redirect('/UsuarioBatimentosCardiacosRegistros');
+    }
 }

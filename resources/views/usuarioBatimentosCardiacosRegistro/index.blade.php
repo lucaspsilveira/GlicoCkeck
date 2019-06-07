@@ -21,7 +21,7 @@
                                         
                                         <button class="delete" type="submit"></button>              
                                        </form>
-                                    <span class="icon " onclick="location.href=''">
+                                    <span class="icon " onclick="location.href='/UsuarioBatimentosCardiacosRegistros/{{$registro->id}}/edit'">
                                         <i class="fas fa-edit"></i>
                                       </span>
                                 </td>
