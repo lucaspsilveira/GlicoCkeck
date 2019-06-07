@@ -146,7 +146,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'email' => 'lucasdfdfss@lucas.com',
         ]);
         $this->withoutExceptionHandling();
-        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+        $response = $this->post('/UsuarioBatimentosRegistros', [
             'id_usuario' => 4,
             'batimentos_cardiacos' => 19,
         ]);
@@ -161,7 +161,7 @@ class UsuarioRegistroDadosTest extends TestCase
     public function um_registro_batimentos_cardiacos_tem_que_ter_peso_e_usuario_e_unidade()
     {
         //$this->withoutExceptionHandling();
-        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+        $response = $this->post('/UsuarioBatimentosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
         ]);
