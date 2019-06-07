@@ -16,6 +16,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
+    
     public function store() {
         $dados = request()->validate([
             'email' => 'required|unique:users,email',

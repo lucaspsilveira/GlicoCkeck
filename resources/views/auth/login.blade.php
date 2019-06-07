@@ -33,13 +33,25 @@
                         <div class="control">
                             <button type="submit" class="button is-link">Fazer Login</button>
                         </div>
-                <div>
+                    </div>
                 @if (Route::has('password.request'))
+                <div class="field is-grouped is-grouped-centered">
                     <div class="control">
                         <a class="is-link" href="{{ route('password.request') }}">Esqueci minha senha</a>
                     </div>
+                </div>
                 @endif
-                
-    </form>
+    </form><br>
+    <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+                <p>ou</p>
+            </div>
+    </div>
+        <br>
+    <div class="field is-grouped is-grouped-centered">
+            <div class="control">
+            <a href="{{route('register')}}" class="button is-primary">Registre-se</a>
+            </div>
+        </div>
 </div>
 @endsection
