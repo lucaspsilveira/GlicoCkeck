@@ -80,7 +80,7 @@
                 </div>
               </nav>
                 
-        <section class="section">
+        <section class="section" style="padding-top:1rem">
             <div class="container">
                 <div class="columns is-mobile">
                         <div class="column">
