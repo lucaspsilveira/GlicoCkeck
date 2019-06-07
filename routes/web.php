@@ -17,6 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::post("UsuarioGlicoseRegistros",'UsuarioGlicoseRegistroController@store');
 Route::get("UsuarioGlicoseRegistros",'UsuarioGlicoseRegistroController@index');
 Route::get("UsuarioGlicoseRegistros/create",'UsuarioGlicoseRegistroController@create');
+Route::delete("UsuarioGlicoseRegistros/{id}",'UsuarioGlicoseRegistroController@destroy');
 
 Route::post("UsuarioAlturaRegistros",'UsuarioAlturaRegistroController@store');
 Route::get("UsuarioPesoRegistros",'UsuarioAlturaRegistroController@index');
