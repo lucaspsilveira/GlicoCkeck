@@ -25,21 +25,29 @@ Route::post("UsuarioAlturaRegistros",'UsuarioAlturaRegistroController@store');
 Route::get("UsuarioPesoRegistros",'UsuarioAlturaRegistroController@index');
 Route::get("UsuarioPesoRegistros/create",'UsuarioPesoRegistroController@create');
 Route::delete("UsuarioPesoRegistros/{id}",'UsuarioPesoRegistroController@destroy');
+Route::patch("UsuarioPesoRegistros/{id}",'UsuarioPesoRegistroController@update');
+Route::get("UsuarioPesoRegistros/{id}/edit",'UsuarioPesoRegistroController@edit');
 
 Route::post("UsuarioPesoRegistros",'UsuarioPesoRegistroController@store');
 Route::get("UsuarioPesoRegistros",'UsuarioPesoRegistroController@index');
 Route::get("UsuarioPesoRegistros/create",'UsuarioPesoRegistroController@create');
 Route::delete("UsuarioPesoRegistros/{id}",'UsuarioPesoRegistroController@destroy');
+Route::patch("UsuarioPesoRegistros/{id}",'UsuarioPesoRegistroController@update');
+Route::get("UsuarioPesoRegistros/{id}/edit",'UsuarioPesoRegistroController@edit');
 
 Route::post("UsuarioBatimentosCardiacosRegistros",'UsuarioBatimentosCardiacosRegistroController@store');
 Route::get("UsuarioBatimentosCardiacosRegistros",'UsuarioBatimentosCardiacosRegistroController@index');
 Route::get("UsuarioBatimentosCardiacosRegistros/create",'UsuarioBatimentosCardiacosRegistroController@create');
 Route::delete("UsuarioBatimentosCardiacosRegistros/{id}",'UsuarioBatimentosCardiacosRegistroController@destroy');
+Route::patch("UsuarioBatimentosCardiacosRegistros/{id}",'UsuarioBatimentosCardiacosRegistroController@update');
+Route::get("UsuarioBatimentosCardiacosRegistros/{id}/edit",'UsuarioBatimentosCardiacosRegistroController@edit');
 
 Route::post("UsuarioPressaoArterialRegistros",'UsuarioPressaoArterialRegistroController@store');
 Route::get("UsuarioPressaoArterialRegistros",'UsuarioPressaoArterialRegistroController@index');
 Route::get("UsuarioPressaoArterialRegistros/create",'UsuarioPressaoArterialRegistroController@create');
 Route::delete("UsuarioPressaoArterialRegistros/{id}",'UsuarioPressaoArterialRegistroController@destroy');
+Route::patch("UsuarioPressaoArterialRegistros/{id}",'UsuarioPressaoArterialRegistroController@update');
+Route::get("UsuarioPressaoArterialRegistros/{id}/edit",'UsuarioPressaoArterialRegistroController@edit');
 
 Route::post("users",'UserController@store');
 Route::get("users",'UserController@index');
