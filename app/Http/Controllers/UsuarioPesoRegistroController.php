@@ -56,4 +56,32 @@ class UsuarioPesoRegistroController extends Controller
         $registro->delete();
         return redirect('/UsuarioPesoRegistros');
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {   
+        $registro = UsuarioPesoRegistro::find($id);
+        $dados = request()->validate([
+            'peso' => 'required',
+            'unidade' => 'required',
+            'created_at' => 'required'
+        ]);
+        $registro->update($dados);
+        return redirect('/UsuarioPesoRegistros');
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $registro = UsuarioPesoRegistro::find($id);
+        return view('usuarioPesoRegistro.edit', compact('registro'));
+    }
 }
