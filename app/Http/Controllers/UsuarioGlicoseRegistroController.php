@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UsuarioGlicoseRegistro;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioGlicoseRegistroController extends Controller
 {
@@ -18,11 +19,13 @@ class UsuarioGlicoseRegistroController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        $request['id_usuario'] = Auth::user()->id;
         $dados = request()->validate([
             'id_usuario' => 'required|exists:users,id',
             'glicose' => 'required'
         ]);
         UsuarioGlicoseRegistro::create($dados);
+        return view('home');
     }
 
     /**
