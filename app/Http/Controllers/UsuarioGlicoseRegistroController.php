@@ -68,9 +68,10 @@ class UsuarioGlicoseRegistroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(UsuarioGlicoseRegistro $usuarioGlicoseRegistro)
+    public function edit($id)
     {
-        return view('usuarioRegistroGlicose.edit', compact('usuarioGlicoseRegistro'));
+        $registro = UsuarioGlicoseRegistro::find($id);
+        return view('usuarioGlicoseRegistro.edit', compact('registro'));
     }
 
     /**
@@ -79,11 +80,15 @@ class UsuarioGlicoseRegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update(UsuarioGlicoseRegistro $usuarioGlicoseRegistro)
-    {
-        $usuarioGlicoseRegistro->update([
-            'glicose'
+    public function update($id)
+    {   
+        $registro = UsuarioGlicoseRegistro::find($id);
+        $dados = request()->validate([
+            'glicose' => 'required',
+            'created_at' => 'required'
         ]);
+        $registro->update($dados);
+        return redirect('/UsuarioGlicoseRegistros');
     }
 
     /**
