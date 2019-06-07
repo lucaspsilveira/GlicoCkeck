@@ -56,4 +56,32 @@ class UsuarioPressaoArterialRegistroController extends Controller
         $registro->delete();
         return redirect('/UsuarioPressaoArterialRegistros');
     }
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {   
+        $registro = UsuarioPressaoArterialRegistro::find($id);
+        $dados = request()->validate([
+            'pressao_arterial_sistolica' => 'required',
+            'pressao_arterial_diastolica' => 'required',
+            'created_at' => 'required'
+        ]);
+        $registro->update($dados);
+        return redirect('/UsuarioPressaoArterialRegistros');
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $registro = UsuarioPressaoArterialRegistro::find($id);
+        return view('usuarioPressaoArterialRegistro.edit', compact('registro'));
+    }
 }
