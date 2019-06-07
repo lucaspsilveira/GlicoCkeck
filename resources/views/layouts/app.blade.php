@@ -61,7 +61,7 @@
                     
                             <div class="navbar-dropdown">
                              
-                              <hr class="navbar-divider">
+                              
                               <a class="navbar-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
