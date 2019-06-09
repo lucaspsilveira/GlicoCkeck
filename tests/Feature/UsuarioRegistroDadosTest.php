@@ -26,14 +26,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $this->post('/users', [
-            'name' => 'Lucas',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaas',
-            'email' => 'lucasss@lucas.com',
-        ]);
+        $this->post('/users', $this->dadosUsuario());
         //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => 1,
@@ -74,14 +67,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $oi = $this->post('/users', $this->dadosUsuario());
         //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => 2,
@@ -124,14 +110,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         //$this->withoutExceptionHandling();
@@ -177,14 +156,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         //$this->withoutExceptionHandling();
@@ -227,14 +199,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         //$this->withoutExceptionHandling();
@@ -266,5 +231,19 @@ class UsuarioRegistroDadosTest extends TestCase
             'pressao_arterial_diastolica' => 10
         ]);
         $response->assertSessionHasErrors();
+    }
+
+    /**
+     * @return array
+     */
+    private function dadosUsuario() {
+        return [
+            'name' => 'Lucas',
+            'password' => 'dsdsdsd',
+            'sexo' => 0,
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaas',
+            'email' => 'lucasss@lucas.com',
+        ];
     }
 }
