@@ -21,11 +21,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_glicose_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        
+        $this->be($this->dadosUsuarioTeste());
         $this->post('/users', $this->dadosUsuario());
         
         $response = $this->post('/UsuarioGlicoseRegistros', [
@@ -43,11 +40,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_glicose_tem_que_ter_glicemia_e_usuario()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        
+        $this->be($this->dadosUsuarioTeste());
         
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => '1',
@@ -62,11 +56,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_altura_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        
+        $this->be($this->dadosUsuarioTeste());
         $this->post('/users', $this->dadosUsuario());
         
         $response = $this->post('/UsuarioAlturaRegistros', [
@@ -84,11 +75,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_altura_tem_que_ter_altura_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        
+        $this->be($this->dadosUsuarioTeste());
         
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => '1',
@@ -105,11 +93,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_peso_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        
+        $this->be($this->dadosUsuarioTeste());
         $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
@@ -130,11 +115,7 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_peso_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        $this->be($this->dadosUsuarioTeste());
         
         $response = $this->post('/UsuarioPesoRegistros', [
             'id_usuario' => '1',
@@ -150,11 +131,7 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_batimentos_cardiacos_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        $this->be($this->dadosUsuarioTeste());
         $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
@@ -174,11 +151,7 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_batimentos_cardiacos_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        $this->be($this->dadosUsuarioTeste());
         
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => '1',
@@ -193,11 +166,7 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_pressao_arterial_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        $this->be($this->dadosUsuarioTeste());
         $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
@@ -218,11 +187,7 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_pressao_arterial_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
+        $this->be($this->dadosUsuarioTeste());
         
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => 1,
@@ -244,5 +209,14 @@ class UsuarioRegistroDadosTest extends TestCase
             'usuario' => 'luquinhaas',
             'email' => 'lucasss@lucas.com',
         ];
+    }
+    /**
+     * @return User
+     */
+    private function dadosUsuarioTeste(){
+        return new User([
+            'id' => 1,
+            'name' => "Teste login",
+        ]);
     }
 }
