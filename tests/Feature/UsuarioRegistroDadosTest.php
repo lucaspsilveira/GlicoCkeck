@@ -67,7 +67,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', $this->dadosUsuario());
+        $this->post('/users', $this->dadosUsuario());
         
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => 2,
@@ -110,7 +110,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', $this->dadosUsuario());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         
@@ -155,7 +155,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', $this->dadosUsuario());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         
@@ -198,7 +198,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        $oi = $this->post('/users', $this->dadosUsuario());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
         
