@@ -27,12 +27,12 @@ class UsuarioRegistroDadosTest extends TestCase
         ]);
         $this->be($user);
         $this->post('/users', $this->dadosUsuario());
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => 1,
             'glicose' => 20,
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect('/UsuarioGlicoseRegistros');
         $this->assertCount(1, UsuarioGlicoseRegistro::all());
     }
@@ -48,7 +48,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => '1',
             'glicose' => '1',
@@ -68,7 +68,7 @@ class UsuarioRegistroDadosTest extends TestCase
         ]);
         $this->be($user);
         $oi = $this->post('/users', $this->dadosUsuario());
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => 2,
             'altura' => 1.8,
@@ -89,7 +89,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => '1',
             'altura' => '1',
@@ -113,14 +113,13 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
-       // dd(User::all());
+        
         $response = $this->post('/UsuarioPesoRegistros', [
             'id_usuario' => $user->id,
             'peso' => 19,
             'unidade' => 'KG',
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioPesoRegistros");
         $this->assertCount(1, UsuarioPesoRegistro::all());
     }
@@ -136,7 +135,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioPesoRegistros', [
             'id_usuario' => '1',
             'peso' => '1',
@@ -159,12 +158,12 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => $user->id,
             'batimentos_cardiacos' => 19,
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioBatimentosCardiacosRegistros");
         $this->assertCount(1, UsuarioBatimentosCardiacosRegistro::all());
     }
@@ -180,7 +179,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
@@ -202,13 +201,13 @@ class UsuarioRegistroDadosTest extends TestCase
         $oi = $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => $user->id,
             'pressao_arterial_sistolica' => 19,
             'pressao_arterial_diastolica' => 10
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioPressaoArterialRegistros");
         $this->assertCount(1, UsuarioPressaoArterialRegistro::all());
     }
@@ -224,7 +223,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'name' => "Teste login",
         ]);
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => 1,
             'pressao_arterial_sistolica' => 19,
