@@ -16,7 +16,12 @@ class UsuarioCriacaoTest extends TestCase
      */
     public function um_usuario_pode_se_cadastrar()
     {
-        $this->withoutExceptionHandling();
+        $user = new User([
+            'id' => 1,
+            'name' => "Teste login",
+        ]);
+        $this->be($user);
+        //$this->withoutExceptionHandling();
         $response = $this->post('/users', [
             'name' => 'Lucas',
             'password' => 'dsdsdsd',
@@ -35,6 +40,11 @@ class UsuarioCriacaoTest extends TestCase
      */
     public function um_usuario_nao_pode_se_cadastrar_com_algum_campo_nulo_ou_repetido()
     {
+        $user = new User([
+            'id' => 1,
+            'name' => "Teste login",
+        ]);
+        $this->be($user);
         //$this->withoutExceptionHandling();
         $response = $this->post('/users', [
             'name' => '',
