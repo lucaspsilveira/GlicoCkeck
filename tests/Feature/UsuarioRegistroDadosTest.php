@@ -34,7 +34,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'usuario' => 'luquinhaas',
             'email' => 'lucasss@lucas.com',
         ]);
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => 1,
             'glicose' => 20,
@@ -82,7 +82,7 @@ class UsuarioRegistroDadosTest extends TestCase
             'usuario' => 'luquinhaassdfds',
             'email' => 'lucasdfdfss@lucas.com',
         ]);
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => 2,
             'altura' => 1.8,
@@ -187,7 +187,7 @@ class UsuarioRegistroDadosTest extends TestCase
         ]);
         $user = User::first();
         $this->be($user);
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => $user->id,
             'batimentos_cardiacos' => 19,
@@ -237,7 +237,7 @@ class UsuarioRegistroDadosTest extends TestCase
         ]);
         $user = User::first();
         $this->be($user);
-        $this->withoutExceptionHandling();
+        //$this->withoutExceptionHandling();
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => $user->id,
             'pressao_arterial_sistolica' => 19,
