@@ -12,8 +12,8 @@
         <tbody>
             @foreach ($registrosGlicose as $registro)
             <tr>
-                <th>{{$registro->created_at}}</th> 
-                <td>{{$registro->glicose}} mg/dl</td>
+                <th>{{$registro->created_at->format("d/m/Y H:i:s")}}</th> 
+                <td>{{(str_replace('.', ',',$registro->glicose))}} mg/dl</td>
                 <td>
                 <form action="/UsuarioGlicoseRegistros/{{$registro->id}}" method="POST">
                         @method('DELETE')
