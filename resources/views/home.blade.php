@@ -14,7 +14,7 @@
                     <p class="title">Registrar pressão arterial</p>
                     <p class="subtitle">Registre sua pressão arterial</p>
             </article>
-            <article onclick="location.href ='UsuarioBatimentosRegistros/create'" class="tile is-child notification is-primary">
+            <article onclick="location.href ='UsuarioBatimentosCardiacosRegistros/create'" class="tile is-child notification is-primary">
                     <p class="title">Registrar batimentos cardíacos</p>
                     <p class="subtitle">Registre seus batimentos cardíacos</p>
             </article>
