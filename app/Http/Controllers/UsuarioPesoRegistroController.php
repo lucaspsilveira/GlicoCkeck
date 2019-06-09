@@ -15,7 +15,7 @@ class UsuarioPesoRegistroController extends Controller
     public function store(Request $request) {
         $request['id_usuario'] = Auth::user()->id;
         $dados = request()->validate([
-            'id_usuario' => 'exists:users,id',
+            'id_usuario' => 'required|exists:users,id',
             'peso' => 'required',
             'unidade' => 'required',
         ]);
