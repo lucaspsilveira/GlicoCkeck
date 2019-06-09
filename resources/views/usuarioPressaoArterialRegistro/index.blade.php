@@ -12,7 +12,7 @@
                 <tbody>
                 @foreach ($registrosPressaoArterial as $registro)
                     <tr>
-                        <th>{{$registro->created_at}}</th> 
+                        <th>{{$registro->created_at->format("d/m/Y H:i:s")}}</th> 
                         <td>{{$registro->pressao_arterial_sistolica . "/". $registro->pressao_arterial_diastolica  }} mg/dl</td>
                         <td>
                 

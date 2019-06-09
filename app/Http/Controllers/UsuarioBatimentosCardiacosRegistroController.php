@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UsuarioBatimentosCardiacosRegistro;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UsuarioBatimentosCardiacosRegistroController extends Controller
 {
@@ -74,8 +75,9 @@ class UsuarioBatimentosCardiacosRegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {   
+        $request["created_at"] = Carbon::parse($request["created_at"]);
         $registro = UsuarioBatimentosCardiacosRegistro::find($id);
         $dados = request()->validate([
             'batimentos_cardiacos' => 'required',

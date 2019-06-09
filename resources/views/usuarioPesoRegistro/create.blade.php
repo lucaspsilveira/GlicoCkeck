@@ -6,7 +6,7 @@
     <div class="field">
         <label class="label is-large">Peso</label>
         <div class="control">
-            <input class="input is-large" type="text" name="peso" placeholder="Peso">
+            <input class="input is-large" pattern="[0-9]+([,\.][0-9]+)?" step="0.01" min="0" type="number" name="peso" placeholder="Peso">
         </div>
     </div>
 
