@@ -20,7 +20,7 @@ class UsuarioBatimentosCardiacosRegistroController extends Controller
             'batimentos_cardiacos' => 'required',
         ]);
         UsuarioBatimentosCardiacosRegistro::create($dados);
-        return redirect('UsuarioBatimentosRegistros');
+        return redirect('UsuarioBatimentosCardiacosRegistros');
     }
     /**
      * Display a listing of the resource.
@@ -54,7 +54,7 @@ class UsuarioBatimentosCardiacosRegistroController extends Controller
     {
         $registro = UsuarioBatimentosCardiacosRegistro::find($id);
         $registro->delete();
-        return redirect('/UsuarioBatimentosRegistros');
+        return redirect('/UsuarioBatimentosCardiacosRegistros');
     }
 
       /**
@@ -84,6 +84,6 @@ class UsuarioBatimentosCardiacosRegistroController extends Controller
             'created_at' => 'required'
         ]);
         $registro->update($dados);
-        return redirect('/UsuarioBatimentosRegistros');
+        return redirect('/UsuarioBatimentosCardiacosRegistros');
     }
 }

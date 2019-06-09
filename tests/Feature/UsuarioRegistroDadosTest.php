@@ -209,7 +209,7 @@ class UsuarioRegistroDadosTest extends TestCase
         ]);
         $this->be($user);
         //$this->withoutExceptionHandling();
-        $response = $this->post('/UsuarioBatimentosRegistros', [
+        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
         ]);
