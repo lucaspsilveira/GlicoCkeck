@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\UsuarioPressaoArterialRegistro;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class UsuarioPressaoArterialRegistroController extends Controller
 {
@@ -62,8 +63,9 @@ class UsuarioPressaoArterialRegistroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {   
+        $request["created_at"] = Carbon::parse($request["created_at"]);
         $registro = UsuarioPressaoArterialRegistro::find($id);
         $dados = request()->validate([
             'pressao_arterial_sistolica' => 'required',
