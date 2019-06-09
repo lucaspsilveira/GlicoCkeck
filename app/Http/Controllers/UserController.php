@@ -64,9 +64,9 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Mostra o formulário para editar
      *
-     * @param  int  $id
+     * @param  User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User $user)
