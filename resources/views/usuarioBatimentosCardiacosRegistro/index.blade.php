@@ -15,13 +15,13 @@
                         <th>{{$registro->created_at->format("d/m/Y H:i:s")}}</th> 
                         <td>{{(str_replace('.', ',',$registro->batimentos_cardiacos))}} bpm</td>
                         <td>
-                                <form action="/UsuarioBatimentosCardiacosRegistros/{{$registro->id}}" method="POST">
+                                <form action="/UsuarioBatimentosRegistros/{{$registro->id}}" method="POST">
                                         @method('DELETE')
                                         @csrf
                                         
                                         <button class="delete" type="submit"></button>              
                                        </form>
-                                    <span class="icon " onclick="location.href='/UsuarioBatimentosCardiacosRegistros/{{$registro->id}}/edit'">
+                                    <span class="icon " onclick="location.href='/UsuarioBatimentosRegistros/{{$registro->id}}/edit'">
                                         <i class="fas fa-edit"></i>
                                       </span>
                                 </td>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="post" action="/UsuarioBatimentosCardiacosRegistros/{{$registro->id}}">
+<form method="post" action="/UsuarioBatimentosRegistros/{{$registro->id}}">
     {{ csrf_field() }}
     @method("PATCH")
     <div class="field">
