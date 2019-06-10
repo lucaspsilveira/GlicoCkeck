@@ -59,3 +59,4 @@ Route::get("users/create",'UserController@create');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/registros", 'RegistrosController@index');

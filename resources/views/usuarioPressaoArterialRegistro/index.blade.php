@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>Registros de Pressão Arterial</h1>
-        <table class="table">
+        <table class="table is-fullwidth">
                 <thead>
                     <th class="">Data/Hora Registro</th>
                     <th class="">Pressão Arterial</th>
