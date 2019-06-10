@@ -21,25 +21,15 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_glicose_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        $this->post('/users', [
-            'name' => 'Lucas',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaas',
-            'email' => 'lucasss@lucas.com',
-        ]);
-        //$this->withoutExceptionHandling();
+        
+        $this->be($this->dadosUsuarioTeste());
+        $this->post('/users', $this->dadosUsuario());
+        
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => 1,
             'glicose' => 20,
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect('/UsuarioGlicoseRegistros');
         $this->assertCount(1, UsuarioGlicoseRegistro::all());
     }
@@ -50,12 +40,9 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_glicose_tem_que_ter_glicemia_e_usuario()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        //$this->withoutExceptionHandling();
+        
+        $this->be($this->dadosUsuarioTeste());
+        
         $response = $this->post('/UsuarioGlicoseRegistros', [
             'id_usuario' => '1',
             'glicose' => '1',
@@ -69,20 +56,10 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_altura_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
-        //$this->withoutExceptionHandling();
+        
+        $this->be($this->dadosUsuarioTeste());
+        $this->post('/users', $this->dadosUsuario());
+        
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => 2,
             'altura' => 1.8,
@@ -98,12 +75,9 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_altura_tem_que_ter_altura_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        //$this->withoutExceptionHandling();
+        
+        $this->be($this->dadosUsuarioTeste());
+        
         $response = $this->post('/UsuarioAlturaRegistros', [
             'id_usuario' => '1',
             'altura' => '1',
@@ -119,29 +93,18 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_peso_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        
+        $this->be($this->dadosUsuarioTeste());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
-       // dd(User::all());
+        
         $response = $this->post('/UsuarioPesoRegistros', [
             'id_usuario' => $user->id,
             'peso' => 19,
             'unidade' => 'KG',
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioPesoRegistros");
         $this->assertCount(1, UsuarioPesoRegistro::all());
     }
@@ -152,12 +115,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_peso_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        //$this->withoutExceptionHandling();
+        $this->be($this->dadosUsuarioTeste());
+        
         $response = $this->post('/UsuarioPesoRegistros', [
             'id_usuario' => '1',
             'peso' => '1',
@@ -172,27 +131,16 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_batimentos_cardiacos_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $this->be($this->dadosUsuarioTeste());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => $user->id,
             'batimentos_cardiacos' => 19,
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioBatimentosCardiacosRegistros");
         $this->assertCount(1, UsuarioBatimentosCardiacosRegistro::all());
     }
@@ -203,12 +151,8 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_batimentos_cardiacos_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        //$this->withoutExceptionHandling();
+        $this->be($this->dadosUsuarioTeste());
+        
         $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
@@ -222,28 +166,17 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_pressao_arterial_pode_ser_adicionado()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        $oi = $this->post('/users', [
-            'name' => 'Lucas sdfsd',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaassdfds',
-            'email' => 'lucasdfdfss@lucas.com',
-        ]);
+        $this->be($this->dadosUsuarioTeste());
+        $this->post('/users', $this->dadosUsuario());
         $user = User::first();
         $this->be($user);
-        //$this->withoutExceptionHandling();
+        
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => $user->id,
             'pressao_arterial_sistolica' => 19,
             'pressao_arterial_diastolica' => 10
         ]);
-        //$response->assertOk();
+        
         $response->assertRedirect("/UsuarioPressaoArterialRegistros");
         $this->assertCount(1, UsuarioPressaoArterialRegistro::all());
     }
@@ -254,17 +187,36 @@ class UsuarioRegistroDadosTest extends TestCase
      */
     public function um_registro_pressao_arterial_tem_que_ter_peso_e_usuario_e_unidade()
     {
-        $user = new User([
-            'id' => 1,
-            'name' => "Teste login",
-        ]);
-        $this->be($user);
-        //$this->withoutExceptionHandling();
+        $this->be($this->dadosUsuarioTeste());
+        
         $response = $this->post('/UsuarioPressaoArterialRegistros', [
             'id_usuario' => 1,
             'pressao_arterial_sistolica' => 19,
             'pressao_arterial_diastolica' => 10
         ]);
         $response->assertSessionHasErrors();
+    }
+
+    /**
+     * @return array
+     */
+    private function dadosUsuario() {
+        return [
+            'name' => 'Lucas',
+            'password' => 'dsdsdsd',
+            'sexo' => 0,
+            'data_nascimento' => "1998-12-12",
+            'usuario' => 'luquinhaas',
+            'email' => 'lucasss@lucas.com',
+        ];
+    }
+    /**
+     * @return User
+     */
+    private function dadosUsuarioTeste(){
+        return new User([
+            'id' => 1,
+            'name' => "Teste login",
+        ]);
     }
 }
