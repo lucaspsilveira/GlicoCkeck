@@ -85,7 +85,7 @@ class UsuarioGlicoseRegistroController extends Controller
     {   
         //$request["created_at"] = Carbon::parse($request["created_at"]);
         $date = str_replace('/', '-', $request["created_at"] );
-        $newDate = date("Y-m-d h:i:s", strtotime($date));
+        $newDate = date("Y-m-d H:i:s", strtotime($date));
         $request["created_at"] = $newDate;
         $registro = UsuarioGlicoseRegistro::find($id);
         $dados = request()->validate([

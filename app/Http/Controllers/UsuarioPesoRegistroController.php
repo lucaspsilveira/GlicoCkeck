@@ -65,7 +65,10 @@ class UsuarioPesoRegistroController extends Controller
      */
     public function update($id, Request $request)
     {   
-        $request["created_at"] = Carbon::parse($request["created_at"]);
+        //$request["created_at"] = Carbon::parse($request["created_at"]);
+        $date = str_replace('/', '-', $request["created_at"] );
+        $newDate = date("Y-m-d H:i:s", strtotime($date));
+        $request["created_at"] = $newDate;
         $registro = UsuarioPesoRegistro::find($id);
         $dados = request()->validate([
             'peso' => 'required',
