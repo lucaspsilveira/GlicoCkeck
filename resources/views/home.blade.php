@@ -6,6 +6,10 @@
             <h3 class="title">
                 Olá {{Auth::user()->name}}
             </h3>
+            <article onclick="location.href ='registros'" class="tile is-child notification is-info">
+                <p class="title">Visualizar Registros</p>
+                <p class="subtitle">Aqui você pode ver o que já foi registrado</p>
+            </article>
             <article onclick="location.href ='UsuarioGlicoseRegistros/create'" class="tile is-child notification is-primary">
                 <p class="title">Registrar glicose</p>
                 <p class="subtitle">Registre seu nível de glicose</p>
