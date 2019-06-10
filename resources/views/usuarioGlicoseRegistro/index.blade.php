@@ -25,7 +25,7 @@
                 <td>{{(str_replace('.', ',',$registro->glicose))}} mg/dl</td>
                 <td>
                         <button class="delete" onclick="ativaModal({{$registro->id}})"></button>
-                    <span class="icon " onclick="location.href='/UsuarioGlicoseRegistros/{{$registro->id}}/edit'">
+                    <span class="icon " onclick="location.href='{{route('UsuarioGlicoseRegistros.edit',$registro->id)}}'">
                         <i class="fas fa-edit"></i>
                       </span>
                 </td>
@@ -57,7 +57,7 @@
 <script>
     function ativaModal(id) {
         var element = document.getElementById("modal-verificacao");
-        document.getElementById("form-exclusao").action = "/UsuarioGlicoseRegistros/"+ id;
+        document.getElementById("form-exclusao").action = "{{route('UsuarioGlicoseRegistros.index')}}/"+ id;
         element.classList.add("is-active"); 
         element.classList.add("is-clipped");
     }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="post" action="/UsuarioPressaoArterialRegistros">
+<form method="post" action="{{route('UsuarioPressaoArterialRegistros.store')}}">
     {{ csrf_field() }}
     <div class="field">
         <label class="label is-large">Pressão sistólica (valor maior)</label>

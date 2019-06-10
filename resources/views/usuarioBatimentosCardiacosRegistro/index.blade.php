@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Registros de batimentos cardíacos</h1>
+    <h1 class="title">Registros de batimentos cardíacos</h1>
     <table class="table is-fullwidth">
             <thead>
                 <th class="">Data/Hora Registro</th>
@@ -17,7 +17,7 @@
                         <td>
                                         <button class="delete" type="submit" onclick="ativaModal({{$registro->id}})"></button>              
                                        
-                                    <span class="icon " onclick="location.href='/UsuarioBatimentosCardiacosRegistros/{{$registro->id}}/edit'">
+                                    <span class="icon " onclick="location.href='{{route('UsuarioBatimentosRegistros.edit',$registro->id)}}'">
                                         <i class="fas fa-edit"></i>
                                       </span>
                                 </td>
@@ -49,7 +49,7 @@
             <script>
                     function ativaModal(id) {
                         var element = document.getElementById("modal-verificacao");
-                        document.getElementById("form-exclusao").action = "/UsuarioBatimentosCardiacosRegistros/"+ id;
+                        document.getElementById("form-exclusao").action = "{{route('UsuarioBatimentosRegistros.index')}}/"+ id;
                         element.classList.add("is-active"); 
                         element.classList.add("is-clipped");
                     }

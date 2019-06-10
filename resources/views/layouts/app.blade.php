@@ -23,7 +23,7 @@
             
               <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                  <a class="navbar-item" href="/">
+                <a class="navbar-item" href="{{route('home')}}">
                     <p>GlicoCheck</p>
                   </a>
               

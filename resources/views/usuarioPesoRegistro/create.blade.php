@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form method="post" action="/UsuarioPesoRegistros">
+<form method="post" action="{{route('UsuarioPesoRegistros.store')}}">
     {{ csrf_field() }}
     <div class="field">
         <label class="label is-large">Peso</label>
