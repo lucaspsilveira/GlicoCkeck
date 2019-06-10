@@ -136,12 +136,12 @@ class UsuarioRegistroDadosTest extends TestCase
         $user = User::first();
         $this->be($user);
         
-        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+        $response = $this->post('/UsuarioBatimentosRegistros', [
             'id_usuario' => $user->id,
             'batimentos_cardiacos' => 19,
         ]);
         
-        $response->assertRedirect("/UsuarioBatimentosCardiacosRegistros");
+        $response->assertRedirect("/UsuarioBatimentosRegistros");
         $this->assertCount(1, UsuarioBatimentosCardiacosRegistro::all());
     }
     /**
@@ -153,7 +153,7 @@ class UsuarioRegistroDadosTest extends TestCase
     {
         $this->be($this->dadosUsuarioTeste());
         
-        $response = $this->post('/UsuarioBatimentosCardiacosRegistros', [
+        $response = $this->post('/UsuarioBatimentosRegistros', [
             'id_usuario' => '1',
             'batimentos_cardiacos' => 3,
         ]);
