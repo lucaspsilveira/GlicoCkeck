@@ -1,8 +1,12 @@
 @extends('layouts.app')
-
+@push('head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>    
+@endpush
 @section('content')
 
-    <h1>Registros de Glicose</h1>
+    <h1 class="title">Registros de Glicose</h1>
+    <canvas id="myChart" width="100%" height=""></canvas>
     <table class="table is-fullwidth">
         <thead>
             <th class="">Data/Hora Registro</th>
@@ -10,8 +14,13 @@
             <th class="">Ações</th>
         </thead>
         <tbody>
+          <?php $datas = array(); $glicose = array(); ?>
             @foreach ($registrosGlicose as $registro)
             <tr>
+                <?php
+                  $datas[] = $registro->created_at->format("d/m/Y");
+                  $glicose[] = $registro->glicose;
+                  ?>
                 <th>{{$registro->created_at->format("d/m/Y H:i:s")}}</th> 
                 <td>{{(str_replace('.', ',',$registro->glicose))}} mg/dl</td>
                 <td>
@@ -57,5 +66,33 @@
         element.classList.remove("is-active"); 
         element.classList.remove("is-clipped");
     }
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          
+          labels: <?php  echo json_encode(array_reverse($datas));?>,
+            datasets: [{
+                label: 'glicose',
+                data: <?php  echo json_encode(array_reverse($glicose)); ?>,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
 </script>
 @endsection
