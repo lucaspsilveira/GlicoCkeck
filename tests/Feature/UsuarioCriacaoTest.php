@@ -22,14 +22,7 @@ class UsuarioCriacaoTest extends TestCase
         ]);
         $this->be($user);
         //$this->withoutExceptionHandling();
-        $response = $this->post('/users', [
-            'name' => 'Lucas',
-            'password' => 'dsdsdsd',
-            'sexo' => 0,
-            'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhaas',
-            'email' => 'lucasss@lucas.com',
-        ]);
+        $response = $this->post('/users', $this->dadosUsuario());
         $response->assertOk();
         $this->assertCount(1, User::all());
     }
@@ -46,14 +39,21 @@ class UsuarioCriacaoTest extends TestCase
         ]);
         $this->be($user);
         //$this->withoutExceptionHandling();
-        $response = $this->post('/users', [
-            'name' => '',
+        $response = $this->post('/users', array_merge($this->dadosUsuario(), ['name' => '']));
+        $response->assertSessionHasErrors();
+    }
+
+    /**
+     * @return array
+     */
+    private function dadosUsuario(){
+        return [
+            'name' => 'Lucas',
             'password' => 'dsdsdsd',
             'sexo' => 0,
             'data_nascimento' => "1998-12-12",
-            'usuario' => 'luquinhas',
-            'email' => 'lucas@lucas.com',
-        ]);
-        $response->assertSessionHasErrors();
+            'usuario' => 'luquinhaas',
+            'email' => 'lucasss@lucas.com',
+        ];
     }
 }
